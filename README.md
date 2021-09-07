@@ -2,7 +2,7 @@
 # Overthrow Plus RHSUSAF
 * Overthrow Plus is a rework of the original Overthrow mission created by armazac @ https://github.com/ArmaOverthrow/Overthrow
 * Overthrow Plus created by Nifnat @ https://github.com/Nifnat/Overthrow
-* Overthrow Plus RHSUSAF integrates more squads and vehicles from RHSUSAF into the mod
+* Overthrow Plus RHSUSAF integrates more squads and vehicles from RHS into the mod
 
 ![image](https://cloud.githubusercontent.com/assets/19246239/17642726/b268a4da-6194-11e6-850a-8951aed0f930.png)
 
@@ -33,7 +33,9 @@ A dynamic and persistent revolution campaign mod for ARMA 3 Apex
 * ACE3 (Fully integrated) [(Steam Workshop)](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057)
 * CBA_A3 [(Steam Workshop)](https://steamcommunity.com/workshop/filedetails/?id=450814997)
 * RHSUSAF [(Steam Workshop)](https://steamcommunity.com/sharedfiles/filedetails/?id=843577117)
+* RHSGREF [(Steam Workshop)](https://steamcommunity.com/workshop/filedetails/?id=843593391)
 * ACE Compat - RHS United States Armed Forces [(Steam Workshop)](https://steamcommunity.com/sharedfiles/filedetails/?id=773125288)
+* ACE Compat - GREF [(Steam Workshop)](https://steamcommunity.com/workshop/filedetails/?id=884966711)
 
 # To install
 * Overthrow is available on the [Steam Workshop](http://steamcommunity.com/sharedfiles/filedetails/?id=774201744)
