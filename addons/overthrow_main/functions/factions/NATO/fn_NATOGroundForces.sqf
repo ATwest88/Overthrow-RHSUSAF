@@ -4,16 +4,17 @@ private _vehtype = OT_NATO_Vehicle_Transport call BIS_fnc_selectRandom;
 if(_byair) then {
 	_vehtype = OT_NATO_Vehicle_AirTransport call BIS_fnc_selectRandom;
 };
-private _squadtype = OT_NATO_GroundForces call BIS_fnc_SelectRandom;
+private _squadtype = ["rhs_group_nato_usarmy_wd_infantry_weaponsquad","rhs_group_nato_usarmy_wd_infantry_squad","rhs_group_nato_usarmy_wd_infantry_squad_sniper"] call BIS_fnc_SelectRandom;
+private _marinetype = ["rhs_group_nato_usmc_wd_infantry_squad","rhs_group_nato_usmc_wd_infantry_squad_sniper","rhs_group_nato_usmc_wd_infantry_weaponsquad"] call BIS_fnc_SelectRandom;
 private _spawnpos = _frompos;
-private _group1 = [_spawnpos, WEST, (configFile >> "CfgGroups" >> "West" >> OT_faction_NATO >> "Infantry" >> _squadtype)] call BIS_fnc_spawnGroup;
+private _group1 = [_spawnpos, WEST, (configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> _marinetype)] call BIS_fnc_spawnGroup;
 _group1 deleteGroupWhenEmpty true;
 private _group2 = "";
 private _tgroup = false;
 if !(_byair) then {
 	sleep 0.3;
-	_squadtype = OT_NATO_GroundForces call BIS_fnc_SelectRandom;
-	_group2 = [_spawnpos, WEST, (configFile >> "CfgGroups" >> "West" >> OT_faction_NATO >> "Infantry" >> _squadtype)] call BIS_fnc_spawnGroup;
+	_squadtype = ["rhs_group_nato_usarmy_wd_infantry_weaponsquad","rhs_group_nato_usarmy_wd_infantry_squad","rhs_group_nato_usarmy_wd_infantry_squad_sniper"] call BIS_fnc_SelectRandom;
+	_group2 = [_spawnpos, WEST, (configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry" >> _squadtype)] call BIS_fnc_spawnGroup;
 	_group2 deleteGroupWhenEmpty true;
 };
 sleep 0.5;

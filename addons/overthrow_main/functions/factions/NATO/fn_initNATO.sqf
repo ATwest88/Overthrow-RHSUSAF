@@ -4,7 +4,7 @@ OT_NATO_Group_Recon = "";
 OT_NATO_Group_Engineers = "";
 {
 	private _name = configName _x;
-	if((_name find "Recon") > -1) then {
+	if((_name find "Team") > -1) then {
 		OT_NATO_Group_Recon = _name;
 		OT_NATO_Group_Engineers = _name;
 	};
@@ -12,14 +12,14 @@ OT_NATO_Group_Engineers = "";
 	if(_numtroops > 5) then {
 		OT_NATO_GroundForces pushback _name;
 	};
-}foreach("true" configClasses (configFile >> "CfgGroups" >> "West" >> OT_faction_NATO >> "Infantry"));
+}foreach("true" configClasses (configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry"));
 
 {
 	private _name = configName _x;
-	if((_name find "ENG") > -1) then {
+	if((_name find "MSOT Element") > -1) then {
 		OT_NATO_Group_Engineers = _name;
 	};
-}foreach("true" configClasses (configFile >> "CfgGroups" >> "West" >> OT_faction_NATO >> "Support"));
+}foreach("true" configClasses (configFile >> "CfgGroups" >> "West" >> "rhs_faction_socom_marsoc" >> "rhs_group_nato_marsoc_infantry"));
 
 OT_NATO_Units_LevelOne = [];
 OT_NATO_Units_LevelTwo = [];
@@ -77,7 +77,7 @@ private _c = 0;
 			};
 		};
 	};
-}foreach(format["(getNumber(_x >> 'scope') isEqualTo 2) && (getText(_x >> 'faction') isEqualTo '%1') && (configName _x) isKindOf 'SoldierWB'",OT_faction_NATO] configClasses (configFile >> "CfgVehicles"));
+}foreach(format["(getNumber(_x >> 'scope') isEqualTo 2) && (getText(_x >> 'faction') isEqualTo '%1') && (configName _x) isKindOf 'SoldierWB'","rhs_faction_usarmy_wd"] configClasses (configFile >> "CfgVehicles"));
 
 (OT_loadingMessages call BIS_fnc_selectRandom) remoteExec['OT_fnc_notifyStart',0,false];
 
@@ -169,7 +169,7 @@ if((server getVariable "StartupType") == "NEW" || (server getVariable ["NATOvers
 
 			if(_name isEqualTo OT_NATO_HQ) then {
 				_garrison = 48;
-				server setVariable [format ["vehgarrison%1",_name],["B_T_APC_Tracked_01_AA_F","B_T_APC_Tracked_01_AA_F","B_GMG_01_high_F","B_GMG_01_high_F","B_GMG_01_high_F","B_HMG_01_high_F","B_HMG_01_high_F","B_HMG_01_high_F"],true];
+				server setVariable [format ["vehgarrison%1",_name],["rhsusf_m1a2sep1tuskiwd_usarmy","B_T_APC_Tracked_01_AA_F","B_T_APC_Tracked_01_AA_F","B_GMG_01_high_F","B_GMG_01_high_F","B_GMG_01_high_F","B_HMG_01_high_F","B_HMG_01_high_F","B_HMG_01_high_F","rhsusf_m109_usarmy"],true];
 				_garr = [];
 				{
 					_x params ["_class","_num"];

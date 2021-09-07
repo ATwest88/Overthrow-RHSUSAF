@@ -88,14 +88,15 @@ OT_NATO_Vehicles_AirGarrison = [
 	["B_VTOL_01_vehicle_F",1],
 	["B_VTOL_01_infantry_F",1],
 	["B_Heli_Light_01_armed_F",1],
-	["B_Heli_Transport_03_unarmed_F",2],
+	["RHS_UH60M",1],
 	["B_Heli_Light_01_F",3],
-	["B_Heli_Attack_01_F",1],
-	["B_Heli_Transport_01_F",2]
+	["RHS_AH64D_wd_AA",1],
+	["B_Heli_Attack_01_F",1]
 ];
 
 OT_NATO_Vehicles_JetGarrison = [
-	["B_Plane_CAS_01_F",1]
+	["B_Plane_CAS_01_F",1],
+	["rhsusf_f22",1]
 ];
 
 OT_NATO_Vehicles_StaticAAGarrison = [
@@ -111,40 +112,41 @@ if(OT_hasJetsDLC) then {
 };
 
 OT_NATO_StaticGarrison_LevelOne = ["B_HMG_01_high_F"];
-OT_NATO_StaticGarrison_LevelTwo = ["B_HMG_01_high_F","B_HMG_01_high_F","B_GMG_01_high_F","B_MRAP_01_hmg_F"];
-OT_NATO_StaticGarrison_LevelThree = ["B_Static_AT_F","B_Static_AA_F","B_HMG_01_high_F","B_HMG_01_high_F","B_GMG_01_high_F","B_MRAP_01_hmg_F","B_MRAP_01_gmg_F"];
+OT_NATO_StaticGarrison_LevelTwo = ["B_HMG_01_high_F","B_HMG_01_high_F","B_GMG_01_high_F","B_MRAP_01_hmg_F","rhsusf_m113d_usarmy","rhsusf_m1025_d_s_m2"];
+OT_NATO_StaticGarrison_LevelThree = ["B_Static_AT_F","B_Static_AA_F","B_HMG_01_high_F","B_HMG_01_high_F","B_GMG_01_high_F","B_MRAP_01_hmg_F","B_MRAP_01_gmg_F","rhsusf_m113d_usarmy","rhsusf_m1025_d_s_m2","RHS_M119_D"];
 
 OT_NATO_CommTowers = ["Land_TTowerBig_1_F","Land_TTowerBig_2_F"];
 
-OT_NATO_Unit_Sniper = "B_Sniper_F";
-OT_NATO_Unit_Spotter = "B_Spotter_F";
-OT_NATO_Unit_AA_spec = "B_Soldier_AA_F";
-OT_NATO_Unit_AA_ass = "B_Soldier_AAA_F";
-OT_NATO_Unit_HVT = "B_Officer_F";
-OT_NATO_Unit_TeamLeader = "B_Soldier_TL_F";
-OT_NATO_Unit_SquadLeader = "B_Soldier_SL_F";
+OT_NATO_Unit_Sniper = "rhsusf_socom_marsoc_sniper";
+OT_NATO_Unit_Spotter = "rhsusf_socom_marsoc_spotter";
+OT_NATO_Unit_AA_spec = "rhsusf_army_ucp_aa";
+OT_NATO_Unit_AA_ass = "rhsusf_army_ucp_aa";
+OT_NATO_Unit_HVT = "rhsusf_socom_marsoc_teamchief";
+OT_NATO_Unit_TeamLeader = "rhsusf_socom_marsoc_teamleader";
+OT_NATO_Unit_SquadLeader = "rhsusf_socom_marsoc_elementleader";
 
 OT_NATO_Unit_PoliceCommander = "B_Gen_Commander_F";
 OT_NATO_Unit_Police = "B_Gen_Soldier_F";
 OT_NATO_Vehicle_PoliceHeli = "B_Heli_Light_01_F";
 OT_NATO_Vehicle_Quad = "B_Quadbike_01_F";
 OT_NATO_Vehicle_Police = "B_GEN_Offroad_01_gen_F";
-OT_NATO_Vehicle_Transport = ["B_Truck_01_transport_F","B_Truck_01_covered_F"];
+OT_NATO_Vehicle_Transport = ["B_Truck_01_transport_F","B_Truck_01_covered_F","rhsusf_rg33_usmc_d","rhsusf_M1083A1P2_B_M2_d_open_fmtv_usarmy","rhsusf_M1237_M2_usarmy_d","rhsusf_M1237_MK19_usarmy_d"];
 OT_NATO_Vehicle_Transport_Light = "B_LSV_01_unarmed_F";
-OT_NATO_Vehicles_PoliceSupport = ["B_MRAP_01_hmg_F","B_MRAP_01_gmg_F","B_LSV_01_armed_F","B_Heli_Light_01_armed_F"];
+OT_NATO_Vehicles_PoliceSupport = ["B_MRAP_01_hmg_F","B_LSV_01_armed_F","B_Heli_Light_01_armed_F","rhsusf_m1025_d_s_m2","rhsusf_mrzr4_d","rhsusf_m1025_d","rhsusf_m1240_m2_usarmy_d","rhsusf_m1240_mk19_usarmy_d"];
 OT_NATO_Vehicles_ReconDrone = "B_UAV_01_F";
 OT_NATO_Vehicles_CASDrone = "B_UAV_02_CAS_F";
-OT_NATO_Vehicles_AirSupport = ["B_Heli_Attack_01_F"];
-OT_NATO_Vehicles_AirSupport_Small = ["B_Heli_Light_01_armed_F"];
-OT_NATO_Vehicles_GroundSupport = ["B_MRAP_01_gmg_F","B_MRAP_01_hmg_F","B_LSV_01_armed_F"];
-OT_NATO_Vehicles_TankSupport = ["B_MBT_01_TUSK_F","B_MBT_01_cannon_F"];
-OT_NATO_Vehicles_Convoy = ["B_UGV_01_rcws_F","B_MRAP_01_hmg_F","B_LSV_01_armed_F","B_LSV_01_armed_F","B_LSV_01_armed_F"];
-OT_NATO_Vehicles_AirWingedSupport = ["B_Plane_CAS_01_F"];
+OT_NATO_Vehicles_AirSupport = ["B_Heli_Attack_01_F","RHS_UH60M_d","RHS_AH1Z","RHS_AH64D_AA"];
+OT_NATO_Vehicles_AirSupport_Small = ["B_Heli_Light_01_armed_F","RHS_UH1Y_d","RHS_AH64DGrey","RHS_MELB_AH6M"];
+OT_NATO_Vehicles_GroundSupport = ["rhsusf_m1025_d_s_Mk19","rhsusf_m1025_d_s_m2","rhsusf_M1078A1P2_B_M2_d_flatbed_fmtv_usarmy","rhsusf_M1117_D","rhsusf_M1230_M2_usarmy_d","rhsusf_M1230_MK19_usarmy_d"];
+OT_NATO_Vehicles_TankSupport = ["B_MBT_01_TUSK_F","B_MBT_01_cannon_F","rhsusf_m1a2sep1tuskiid_usarmy","rhsusf_m1a2sep1tuskid_usarmy","rhsusf_m1a2sep1d_usarmy","rhsusf_m1a1fep_d","rhsusf_m1a1aim_tuski_d","RHS_M2A3_BUSKIII","RHS_M2A3_BUSKI","rhsusf_m109d_usarmy","rhsusf_m1a1fep_od"];
+OT_NATO_Vehicles_Convoy = ["B_UGV_01_rcws_F","B_MRAP_01_hmg_F","B_LSV_01_armed_F","B_LSV_01_armed_F","B_LSV_01_armed_F","rhsusf_m1025_d_s_m2"];
+OT_NATO_Vehicles_AirWingedSupport = ["B_Plane_CAS_01_F","RHS_A10","rhsusf_f22","B_Plane_CAS_01_F","RHS_A10","B_Plane_CAS_01_F","RHS_A10"];
 OT_NATO_Vehicle_AirTransport_Small = "B_Heli_Transport_01_camo_F";
-OT_NATO_Vehicle_AirTransport = ["B_Heli_Transport_03_F","B_Heli_Transport_01_F","B_Heli_Transport_01_F"];
+OT_NATO_Vehicle_AirTransport = ["B_Heli_Transport_01_F","B_Heli_Transport_01_F","RHS_UH60M_d","RHS_CH_47F_light"];
 OT_NATO_Vehicle_AirTransport_Large = "B_Heli_Transport_03_F";
 OT_NATO_Vehicle_Boat_Small = "B_Boat_Armed_01_minigun_F";
-OT_NATO_Vehicles_APC = ["B_APC_Wheeled_01_cannon_F"];
+OT_NATO_Vehicle_Boat = ["rhsusf_mkvsoc","B_T_Boat_Armed_01_minigun_F"];
+OT_NATO_Vehicles_APC = ["B_APC_Wheeled_01_cannon_F","RHS_M6","RHS_M2A2","rhsusf_rg33_m2_usmc_d","rhsusf_m113d_usarmy_MK19","rhsusf_m113d_usarmy_M240","rhsusf_m113d_usarmy","rhsusf_stryker_m1126_m2_d"];
 
 OT_NATO_Sandbag_Curved = "Land_BagFence_01_round_green_F";
 OT_NATO_Barrier_Small = "Land_HBarrier_01_line_5_green_F";
@@ -152,7 +154,7 @@ OT_NATO_Barrier_Large = "Land_HBarrier_01_wall_6_green_F";
 
 OT_NATO_Mortar = "B_Mortar_01_F";
 
-OT_NATO_Vehicle_HVT = "B_MRAP_01_F";
+OT_NATO_Vehicle_HVT = "rhsusf_m1025_w_s_m2";
 
 OT_NATO_Vehicle_CTRGTransport = "B_CTRG_Heli_Transport_01_tropic_F";
 
@@ -171,7 +173,7 @@ OT_piers = ["Land_PierConcrete_01_4m_ladders_F","Land_PierWooden_01_platform_F",
 OT_offices = ["Land_MultistoryBuilding_01_F","Land_MultistoryBuilding_04_F"];
 OT_portBuildings = ["Land_Warehouse_01_F","Land_Warehouse_02_F","Land_ContainerLine_01_F","Land_ContainerLine_02_F","Land_ContainerLine_03_F"];
 OT_airportTerminals = ["Land_Airport_01_terminal_F","Land_Airport_02_terminal_F","Land_Hangar_F"];
-OT_portBuilding = ["Land_WarehouseShelter_01_F"];
+OT_portBuilding = "Land_WarehouseShelter_01_F";
 OT_policeStation = "Land_Cargo_House_V3_F";
 OT_warehouse = "Land_Warehouse_03_F";
 OT_warehouses = [OT_warehouse,"Land_dp_smallFactory_F","Land_i_Shed_Ind_F"];

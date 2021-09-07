@@ -2,10 +2,11 @@ params ["_frompos","_attackpos","_delay"];
 sleep _delay;
 
 private _dir = [_frompos,_attackpos] call BIS_fnc_dirTo;
-_pos = _frompos findEmptyPosition [50,200,OT_NATO_Vehicle_Boat_Small];
+_vehtype = OT_NATO_Vehicle_Boat call BIS_fnc_selectRandom;
+_pos = _frompos findEmptyPosition [50,200,_vehtype];
 
 _group = creategroup blufor;
-_veh = createVehicle [OT_NATO_Vehicle_Boat_Small, _pos, [], 0,""];
+_veh = createVehicle [_vehtype, _pos, [], 0,""];
 _veh setVariable ["garrison","HQ",false];
 _veh setDir (_dir);
 _group addVehicle _veh;

@@ -107,7 +107,7 @@ if !(captive _unit) then {
 					};
 
 					// carrying a weapon .. illegal
-					if (_unit call OT_fnc_hasWeaponEquipped) exitWith {
+					if ((_unit call OT_fnc_hasWeaponEquipped) && (isNull objectParent player)) exitWith {
 						if(isPlayer _unit) then {
 							format["%1 have seen your weapon",_name] call OT_fnc_notifyMinor;
 						};
@@ -145,7 +145,7 @@ if !(captive _unit) then {
 				//Record any threats as known targets
 				(vehicle _unit) call OT_fnc_NATOreportThreat;
 			};
-			if(_unit call OT_fnc_hasWeaponEquipped) exitWith {
+			if((_unit call OT_fnc_hasWeaponEquipped) && (isNull objectParent player)) exitWith {
 				_unit setCaptive false;
 				[_unit] call OT_fnc_revealToNATO;
 			};
@@ -156,12 +156,12 @@ if !(captive _unit) then {
 				_unit setCaptive false;
 				[_unit] call OT_fnc_revealToNATO;
 			};
-			if !(hmd _unit isEqualTo "") exitWith {
+			if (!(hmd _unit isEqualTo "") && (isNull objectParent player)) exitWith {
 				if(isPlayer _unit) then {
-					"NATO has spotted your NV Goggles" call OT_fnc_notifyMinor;
+					//"NATO has spotted your NV Goggles" call OT_fnc_notifyMinor;
 				};
-				_unit setCaptive false;
-				[_unit] call OT_fnc_revealToNATO;
+				//_unit setCaptive false;
+				//[_unit] call OT_fnc_revealToNATO;
 			};
 			private _unitpos = getPosATL _unit;
 			private _base = _unitpos call OT_fnc_nearestObjective;

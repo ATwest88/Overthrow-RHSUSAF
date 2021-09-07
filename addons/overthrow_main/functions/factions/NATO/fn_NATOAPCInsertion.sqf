@@ -1,12 +1,12 @@
 params ["_frompos","_ao","_attackpos",["_delay",0]];
 if (_delay > 0) then {sleep _delay};
 private _vehtype = OT_NATO_Vehicles_APC call BIS_fnc_selectRandom;
-private _squadtype = OT_NATO_GroundForces call BIS_fnc_SelectRandom;
+private _squadtype = ["rhs_group_nato_usarmy_wd_infantry_weaponsquad","rhs_group_nato_usarmy_wd_infantry_squad","rhs_group_nato_usarmy_wd_infantry_squad_sniper"] call BIS_fnc_SelectRandom;
 private _spawnpos = _frompos findEmptyPosition [15,100,_vehtype];
 if(count _spawnpos == 0) then {
 	_spawnpos = [_frompos,[5,25]] call SHK_pos_fnc_pos;
 };
-private _group1 = [_spawnpos, WEST, (configFile >> "CfgGroups" >> "West" >> OT_faction_NATO >> "Infantry" >> _squadtype)] call BIS_fnc_spawnGroup;
+private _group1 = [_spawnpos, WEST, (configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry" >> _squadtype)] call BIS_fnc_spawnGroup;
 _group1 deleteGroupWhenEmpty true;
 private _group2 = "";
 private _tgroup = false;

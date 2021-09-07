@@ -34,8 +34,38 @@ _abandoned = server getvariable ["NATOabandoned",[]];
 
 ([_pos] call OT_fnc_NATOGetAttackVectors) params ["_ground","_air"];
 
-//Send ground forces by air
+//Send ground forces by land
 private _count = 0;
+if(_strength >= 150) then {
+	{
+		_x params ["_obpos","_name","_pri"];
+
+		_dir = [_pos,_obpos] call BIS_fnc_dirTo;
+		_ao = [_pos,_dir] call OT_fnc_getAO;
+
+		if(_pri > 100 && _popControl > 1000 && _popControl > (random 2000)) then {
+			[_obpos,_ao,_pos,0] spawn OT_fnc_NATOAPCInsertion;
+		}else{
+			[_obpos,_ao,_pos,false,0] spawn OT_fnc_NATOGroundForces;
+		};
+		diag_log format["Overthrow: NATO Sent ground forces from %1 %2",_name,str _obpos];
+		_strength = _strength - 200;
+		
+		if(_strength >= 200) then {
+			_ao = [_pos,_dir] call OT_fnc_getAO;
+			[_obpos,_ao,_pos,false,120] spawn OT_fnc_NATOGroundForces;
+			_strength = _strength - 200;
+			diag_log format["Overthrow: NATO Sent extra ground forces from %1 %2",_name,str _obpos];
+		};
+		_count = _count + 1;
+		
+		if(_strength <=0  || _count isEqualTo 3) exitWith {};
+	}foreach(_ground);
+};
+sleep 2;
+
+//Send ground forces by air
+_count = 0;
 {
 	_x params ["_obpos","_name","_pri"];
 
@@ -53,35 +83,8 @@ private _count = 0;
 	};
 	_count = _count + 1;
 
-	if(_strength <=0 || _count isEqualTo 4) exitWith {};
+	if(_strength <=0 || _count isEqualTo 2) exitWith {};
 }foreach(_air);
-sleep 2;
-
-//Send ground forces by land
-if(_strength >= 150) then {
-	{
-		_x params ["_obpos","_name","_pri"];
-
-		_dir = [_pos,_obpos] call BIS_fnc_dirTo;
-		_ao = [_pos,_dir] call OT_fnc_getAO;
-
-		if(_pri > 100 && _popControl > 1000 && _popControl > (random 2000)) then {
-			[_obpos,_ao,_pos,0] spawn OT_fnc_NATOAPCInsertion;
-		}else{
-			[_obpos,_ao,_pos,false,0] spawn OT_fnc_NATOGroundForces;
-		};
-
-		diag_log format["Overthrow: NATO Sent ground forces from %1 %2",_name,str _obpos];
-		_strength = _strength - 200;
-		if(_strength >= 150) then {
-			_ao = [_pos,_dir] call OT_fnc_getAO;
-			[_obpos,_ao,_pos,false,120] spawn OT_fnc_NATOGroundForces;
-			_strength = _strength - 200;
-			diag_log format["Overthrow: NATO Sent extra ground forces from %1 %2",_name,str _obpos];
-		};
-		if(_strength <=0) exitWith {};
-	}foreach(_ground);
-};
 sleep 2;
 
 if(_strength > 500 && (count _air) > 0) then {
@@ -229,10 +232,10 @@ while {sleep 5; !_over} do {
 			};
 		};
 	}foreach(allunits);
-	if(_alive == 0) then {_enemy = _enemy * 2}; //If no NATO present, cap it faster
+	if(_alive == 0) then {_enemy = _enemy * 8}; //If no NATO present, cap it faster
 	if(time > _timeout && _alive isEqualTo 0 && _enemy isEqualTo 0) then {_enemy = 1};
 	_progresschange = (_alive - _enemy);
-	if(_progresschange < -20) then {_progresschange = -20};
+	if(_progresschange < -30) then {_progresschange = -30};
 	if(_progresschange > 10) then {_progresschange = 10};
 	_progress = _progress + _progresschange;
 	_progressPercent = 0;
